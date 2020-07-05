@@ -1,21 +1,35 @@
+// count actions
 const DECREASE = 'DECRASE';
 const INCREASE = 'INCREASE';
 const RESET = 'RESET';
 
 export { DECREASE, INCREASE, RESET };
 
-// export const CounterAction = (dispatch) => {
-//   return {
-//     increase: () => dispatch({ type: INCREASE }),
-//     decrease: () => dispatch({ type: DECREASE }),
-//     reset: () => dispatch({ type: RESET }),
-//   };
-// };
+// modal actions
+const MODAL_OPEN = 'MODAL_OPEN';
+const MODAL_CLOSE = 'MODAL_CLOSE';
+export { MODAL_OPEN, MODAL_CLOSE };
 
-export const CounterAction = {
-  increase: () => ({
-    type: INCREASE,
-  }),
-  decrease: () => ({ type: DECREASE }),
-  reset: () => ({ type: RESET }),
+// product actions
+export const SET_LOADING = 'SET_LOADING';
+export const GET_PRODUCTS = 'GET_PRODUCTS';
+
+// action creators
+export const decrease = () => ({
+  type: DECREASE,
+});
+
+export const increase = () => ({
+  type: INCREASE,
+});
+
+export const reset = () => ({
+  type: RESET,
+});
+
+export const modalOpen = (name, text) => {
+  return {
+    type: MODAL_OPEN,
+    payload: { name, text },
+  };
 };

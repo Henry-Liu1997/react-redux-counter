@@ -1,22 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { CounterAction } from './action';
+import { increase, decrease, reset, modalOpen } from './action';
 
-function Counter({ count, name, increase, decrease, reset }) {
+function Counter({ count, name, increase, decrease, reset, modalOpen }) {
   return (
     <main className="counter">
       <h1 className="counter__title">counter</h1>
       <h2 className="counter__name">{name}</h2>
       <p className="counter__number">{count}</p>
       <div className="buttons">
-        <button className="counter__button" onClick={increase}>
+        <button className="btn counter__button" onClick={increase}>
           increase
         </button>
-        <button className="counter__button" onClick={reset}>
+        <button
+          className="btn counter__button"
+          onClick={() => {
+            reset();
+            modalOpen('henry', 'you reset the count to 0');
+          }}
+        >
           reset
         </button>
-        <button className="counter__button" onClick={decrease}>
+        <button className="btn counter__button" onClick={decrease}>
           decrease
         </button>
       </div>
@@ -24,11 +30,18 @@ function Counter({ count, name, increase, decrease, reset }) {
   );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ countState }) => {
   return {
-    count: state.count,
-    name: state.name,
+    count: countState.count,
+    name: countState.name,
   };
 };
 
-export default connect(mapStateToProps, CounterAction)(Counter);
+const mapDispatchToProps = {
+  increase,
+  decrease,
+  reset,
+  modalOpen,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);

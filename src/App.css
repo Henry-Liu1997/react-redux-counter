@@ -16,6 +16,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: #eee;
+  letter-spacing: 2px;
 }
 
 .counter {
@@ -38,7 +39,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.counter__button {
+.btn {
   font-size: 2rem;
   font-family: inherit;
   text-transform: uppercase;
@@ -47,9 +48,50 @@ body {
   transition: all 0.3s;
 }
 
-.counter__button:active {
+.btn:active {
   transform: translateY(3px);
+}
+
+.btn:hover {
+  background-color: black;
+  color: #fff;
+  outline: none;
 }
 .counter__button:not(:last-child) {
   margin-right: 2rem;
+}
+
+.modal__container {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 8rem;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+}
+
+.modal__title {
+  margin-bottom: 2rem;
+}
+
+.modal__text {
+  margin-bottom: 5rem;
+}
+
+.open {
+  display: inline-block;
 }
