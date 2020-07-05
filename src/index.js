@@ -15,7 +15,11 @@ const defaultState = {
 
 //setup store
 
-const store = createStore(reducer, defaultState);
+const store = createStore(
+  reducer,
+  defaultState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>

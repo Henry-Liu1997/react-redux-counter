@@ -29,6 +29,10 @@ body {
   margin-bottom: 2rem;
 }
 
+.counter__name {
+  font-weight: 300;
+}
+
 .counter__number {
   font-size: 20rem;
   margin-bottom: 2rem;

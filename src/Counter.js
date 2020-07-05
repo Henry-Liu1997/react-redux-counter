@@ -7,7 +7,7 @@ function Counter({ count, name, increase, decrease, reset }) {
   return (
     <main className="counter">
       <h1 className="counter__title">counter</h1>
-      <h2>{name}</h2>
+      <h2 className="counter__name">{name}</h2>
       <p className="counter__number">{count}</p>
       <div className="buttons">
         <button className="counter__button" onClick={increase}>
