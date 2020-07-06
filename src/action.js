@@ -39,7 +39,7 @@ export const modalOpen = (name, text) => {
 export const getWeather = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      'http://api.openweathermap.org/data/2.5/group?',
+      'https://api.openweathermap.org/data/2.5/group?',
       {
         params: {
           id: '5128581,1816670',
