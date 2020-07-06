@@ -20,7 +20,7 @@ const Weather = ({ loading, cities, getWeather }) => {
         return (
           <div key={city.id} className="weather">
             <h3>{city.name}</h3>
-            <h2>{city.main.temp} degree</h2>
+            <h2>{city.main.temp} degrees</h2>
           </div>
         );
       })}

@@ -2,12 +2,6 @@ html {
   font-size: 62.5%;
 }
 
-@media (max-width: 37.5em) {
-  html {
-    font-size: 37.5%;
-  }
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -105,7 +99,7 @@ body {
 .weather__container {
   position: absolute;
   z-index: 1;
-  top: 6%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2rem;
@@ -123,4 +117,15 @@ body {
 
 .weather:not(:last-child) {
   margin-right: 3rem;
+}
+
+@media (max-width: 37.5em) {
+  html {
+    font-size: 37.5%;
+  }
+
+  .modal {
+    padding: 3rem 6rem;
+    text-align: center;
+  }
 }
