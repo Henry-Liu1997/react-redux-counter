@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // count actions
 const DECREASE = 'DECRASE';
 const INCREASE = 'INCREASE';
@@ -10,9 +12,9 @@ const MODAL_OPEN = 'MODAL_OPEN';
 const MODAL_CLOSE = 'MODAL_CLOSE';
 export { MODAL_OPEN, MODAL_CLOSE };
 
-// product actions
+// get weather actions
 export const SET_LOADING = 'SET_LOADING';
-export const GET_PRODUCTS = 'GET_PRODUCTS';
+export const GET_WEATHER = 'GET_WEATHER';
 
 // action creators
 export const decrease = () => ({
@@ -32,4 +34,26 @@ export const modalOpen = (name, text) => {
     type: MODAL_OPEN,
     payload: { name, text },
   };
+};
+
+export const getWeather = () => async (dispatch) => {
+  try {
+    const response = await axios.get(
+      'http://api.openweathermap.org/data/2.5/group?',
+      {
+        params: {
+          id: '5128581,1816670',
+          units: 'imperial',
+          appid: process.env.REACT_APP_KEY,
+        },
+      }
+    );
+
+    dispatch({
+      type: GET_WEATHER,
+      payload: { loading: false, data: response.data.list },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };

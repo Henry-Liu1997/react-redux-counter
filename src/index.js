@@ -1,25 +1,29 @@
 //import packages
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 //import component
 import App from './App';
 
 //import reducers
 import countReducer from './countReducers';
-import productReducer from './productReducer';
+import weatherReducer from './weatherReducer';
 import modalReducer from './modalReducer';
 
 //setup store
+const middleware = [ReduxThunk];
+
 const store = createStore(
   combineReducers({
     countState: countReducer,
-    porductState: productReducer,
+    weatherState: weatherReducer,
     modalState: modalReducer,
   }),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeWithDevTools(applyMiddleware(...middleware))
 );
 
 ReactDOM.render(

@@ -2,6 +2,12 @@ html {
   font-size: 62.5%;
 }
 
+@media (max-width: 37.5em) {
+  html {
+    font-size: 37.5%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -63,7 +69,7 @@ body {
 
 .modal__container {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   bottom: 0;
@@ -94,4 +100,27 @@ body {
 
 .open {
   display: inline-block;
+}
+
+.weather__container {
+  position: absolute;
+  z-index: 1;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.weather {
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather:not(:last-child) {
+  margin-right: 3rem;
 }
