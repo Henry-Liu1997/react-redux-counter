@@ -6,7 +6,7 @@ import { getWeather } from './action';
 const Weather = ({ loading, cities, getWeather }) => {
   useEffect(() => {
     getWeather();
-  }, []);
+  }, [getWeather]);
 
   console.log(loading, cities);
 
